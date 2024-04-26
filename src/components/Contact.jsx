@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 
 export const Contact = () => {
     const [formData, setFormData] = useState({
@@ -15,10 +15,27 @@ export const Contact = () => {
         });
     };
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: encode({ 'form-name': 'contact', ...formData })
+        })
+        .then(() => alert('Success!'))
+        .catch(error => alert(error));
+    };
+
+    const encode = (data) => {
+        return Object.keys(data)
+            .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+            .join('&');
+    };
+
     return (
         <section id="contact" className="p-4 bg-gray-900 text-white mt-16 mb-16">
             <h2 className="text-3xl font-bold mb-4">Contact Me</h2>
-            <form name="contact" method="POST" data-netlify="true" className="bg-gray-800 p-8 rounded-lg shadow-md w-2/3 mx-auto mt-8 mb-8">
+            <form name="contact" method="POST" data-netlify="true" onSubmit={handleSubmit} className="bg-gray-800 p-8 rounded-lg shadow-md w-2/3 mx-auto mt-8 mb-8">
                 <input type="hidden" name="form-name" value="contact" />
                 <div className="mb-4">
                     <label htmlFor="name" className="block text-sm font-medium text-gray-300">Name</label>
