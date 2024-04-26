@@ -36,7 +36,7 @@ export const Contact = () => {
         <section id="contact" className="p-4 bg-gray-900 text-white mt-16 mb-16">
             <h2 className="text-3xl font-bold mb-4">Contact Me</h2>
             <form name="contact" method="POST" data-netlify="true" onSubmit={handleSubmit} className="bg-gray-800 p-8 rounded-lg shadow-md w-2/3 mx-auto mt-8 mb-8">
-                <input type="hidden" name="form-name" value="contact" />
+                {/* <input type="hidden" name="form-name" value="contact" /> */}
                 <div className="mb-4">
                     <label htmlFor="name" className="block text-sm font-medium text-gray-300">Name</label>
                     <input id="name" type='text' name="name" value={formData.name} onChange={handleChange} required className="mt-1 block w-full px-3 py-2 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm bg-gray-700 text-gray-200" />
