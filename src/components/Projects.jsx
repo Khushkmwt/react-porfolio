@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import wanderlust from '../assets/wanderlust.png';
 import weather from '../assets/weather.png';
+
 export const Projects = () => {
     const [selectedProject, setSelectedProject] = useState(null);
 
@@ -19,7 +20,7 @@ export const Projects = () => {
             name: 'Weather App',
             heading: 'Frontend Web App',
             description: 'A weather app built with React to display current weather conditions.',
-            technologies: ['HTML', 'Tailwind css', 'JavaScript','React'],
+            technologies: ['HTML', 'Tailwind CSS', 'JavaScript', 'React'],
             demoLink: 'https://weatherappkhushkumwt.netlify.app/',
             repoLink: 'https://github.com/Khushkmwt/weatherApp-react',
             image: weather,
@@ -28,15 +29,15 @@ export const Projects = () => {
     ];
 
     return (
-        <section id="projects" className="p-4 bg-gradient-to-r from-teal-400 via-blue-500 to-purple-600 mt-8 mb-8">
-            <h2 className="text-3xl font-bold text-gray-100 mb-4">My Projects</h2>
+        <section id="projects" className="p-4 bg-gradient-to-r from-teal-400 via-blue-500 to-purple-600 mt-8 mb-16 pb-14">
+            <h2 className="text-3xl font-bold text-gray-100 mb-4 hover:text-green-500">My Projects</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pb-6 pt-6">
                 {projects.map((project, index) => (
                     <div key={index} className="relative bg-gray-800 p-4 rounded-lg shadow-md hover:shadow-lg transition duration-300 transform hover:scale-105">
                         <img src={project.image} alt={project.name} className="rounded-lg shadow-md mb-2 md:mb-4 h-52 w-full object-cover" />
                         <div className="absolute top-0 right-0 bg-teal-500 text-white p-2 md:p-4 rounded-tl-md rounded-br-md">
                             <span className="text-xs md:text-sm font-semibold">{project.heading}</span>
-                            <h3 className="text-lg font-bold">{project.name}</h3>
+                            <h3 className="text-lg font-bold transition duration-300 hover:text-pink-500">{project.name}</h3>
                         </div>
                         <div className="flex flex-col justify-between h-full">
                             <div>
@@ -47,13 +48,16 @@ export const Projects = () => {
                                     <a href={project.repoLink} target="_blank" rel="noopener noreferrer" className="bg-blue-500 text-white px-2 md:px-4 py-1 md:py-2 rounded hover:bg-blue-600 text-xs md:text-sm">GitHub</a>
                                     <button className="bg-purple-500 text-white px-2 md:px-4 py-1 md:py-2 rounded hover:bg-purple-600 text-xs md:text-sm mt-2 md:mt-0" onClick={() => setSelectedProject(index)}>Show Details</button>
                                 </div>
+                                
                                 {selectedProject === index && (
-                                <div className="bg-white p-2 md:p-4 animate-fade-in">
-                                    <p className="text-xs md:text-sm mt-2 text-gray-800">{project.details}</p>
-                                </div>
-                            )}
+                                    <div className="bg-gray-200 text-gray-800 p-2 md:p-4 animate-fade-in mt-4">
+                                        <p className="md:text-sm mt-2 text-base">
+                                            {project.details}
+                                        </p>
+                                    </div>
+                                )}
+
                             </div>
-                            
                         </div>
                     </div>
                 ))}
