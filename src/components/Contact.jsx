@@ -22,9 +22,11 @@ export const Contact = () => {
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: encode({ 'form-name': 'contact', ...formData })
         })
-        .then(() => (alert('Success!')))
+        .then(() => {
+            alert('Success!');
+            setFormData({ name: '', email: '', message: '' }); // Reset form fields
+        })
         .catch(error => alert(error));
-        setFormData(' ')
     };
 
     const encode = (data) => {
