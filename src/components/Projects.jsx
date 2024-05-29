@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import wanderlust from '../assets/wanderlust.png';
 import weather from '../assets/weather.png';
+import codeblog from '../assets/codeblog.png'
 
 export const Projects = () => {
     const [selectedProject, setSelectedProject] = useState(null);
@@ -25,7 +26,18 @@ export const Projects = () => {
             repoLink: 'https://github.com/Khushkmwt/weatherApp-react',
             image: weather,
             details: 'This weather app, built using React, provides users with current weather information for their location. It offers detailed forecasts, including temperature, humidity, wind speed, and conditions. Users can also search for weather information in other locations. The app features a clean and intuitive interface, with dynamic updates based on user input. It utilizes APIs to fetch and display weather data, ensuring accuracy and reliability. Overall, it offers a seamless and informative experience for users to stay updated on weather conditions.'
+        },
+        {
+            name: "Code Blog",
+            heading: "Full-Stack Web Application",
+            description: "A blog platform for coding enthusiasts to share knowledge, tutorials, and insights.",
+            technologies: ["HTML", "Tailwind CSS", "JavaScript", "React", "Express.js", "MongoDB"],
+            demoLink: "https://code-blog-4xod.onrender.com/home", // Replace with your actual demo link
+            repoLink: "https://github.com/Khushkmwt/code-blog", // Replace with your actual repo link
+            image: codeblog, 
+            details: "This code blog is a full-stack web application built to foster a community of developers. Users can create and publish blog posts covering various programming topics, from beginner tutorials to advanced techniques. The platform features user authentication, comments, search functionality, and a clean, responsive design. It leverages React for the frontend, Express.js for the backend API, and MongoDB for data storage. The blog aims to be a valuable resource for learning, sharing, and connecting with fellow coders."
         }
+        
     ];
 
     return (
